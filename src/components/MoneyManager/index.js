@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {v4} from 'uuid'
-
 import MoneyDetails from '../MoneyDetails'
+import TransactionItem from '../TransactionItem'
 
 const transactionTypeOptions = [
   {
@@ -69,8 +69,8 @@ class MoneyManager extends Component {
       selectedTransactionTypeOption,
       transactionsList,
     } = this.state
-    console.log(selectedTransactionTypeOption)
-    console.log(transactionsList)
+    // console.log(selectedTransactionTypeOption)
+    // console.log(transactionsList)
 
     return (
       <div className="app-container">
@@ -107,7 +107,7 @@ class MoneyManager extends Component {
           <select
             id="transactionTypes"
             onChange={this.onChangeTransactionType}
-            value={selectedTransactionTypeOption}
+            value={selectedTransactionTypeOption.optionId}
           >
             {transactionTypeOptions.map(option => (
               <option key={option.optionId} value={option.optionId}>
@@ -118,6 +118,17 @@ class MoneyManager extends Component {
           <br />
           <button type="submit">Add</button>
         </form>
+        <div>
+          <h1>History</h1>
+          <ul>
+            {transactionsList.map(transaction => (
+              <TransactionItem
+                key={transaction.id}
+                transactionDetails={transaction}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     )
   }
