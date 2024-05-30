@@ -1,31 +1,51 @@
-// Write your code here
-const MoneyDetails = () => (
-  <div className="money-details-container">
-    <div className="your-balance">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/money-manager/balance-image.png"
-        alt="balance"
-      />
-      <p>Your Balance</p>
-      <h1>Rs 0</h1>
+import './index.css'
+
+const MoneyDetails = props => {
+  const {balanceAmount, incomeAmount, expensesAmount} = props
+
+  return (
+    <div className="money-details-container">
+      <div className="balance-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/money-manager/balance-image.png"
+          alt="balance"
+          className="details-img"
+        />
+        <div>
+          <p className="details-text">Your Balance</p>
+          <p className="details-money" data-testid="balanceAmount">
+            Rs {balanceAmount}
+          </p>
+        </div>
+      </div>
+      <div className="income-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/money-manager/income-image.png"
+          alt="income"
+          className="details-img"
+        />
+        <div>
+          <p className="details-text">Your Income</p>
+          <p className="details-money" data-testid="incomeAmount">
+            Rs {incomeAmount}
+          </p>
+        </div>
+      </div>
+      <div className="expenses-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/money-manager/expenses-image.png"
+          alt="expenses"
+          className="details-img"
+        />
+        <div>
+          <p className="details-text">Your Expenses</p>
+          <p className="details-money" data-testid="expensesAmount">
+            Rs {expensesAmount}
+          </p>
+        </div>
+      </div>
     </div>
-    <div className="your-income">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/money-manager/income-image.png "
-        alt="income"
-      />
-      <p>Your Income</p>
-      <h1>Rs 0</h1>
-    </div>
-    <div className="your-expenses">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/money-manager/expenses-image.png"
-        alt="expenses"
-      />
-      <p>Your Expenses</p>
-      <h1>Rs 0</h1>
-    </div>
-  </div>
-)
+  )
+}
 
 export default MoneyDetails
